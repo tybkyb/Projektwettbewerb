@@ -22,7 +22,7 @@ u_max = 100;
 
 
 % 4.2.1 Zustandsraumdarstellung
-dz = [dphi; solve(eqns(1), ddphi); dx; solve(eqns(2), ddx)]
+dz = [dphi; solve(eqns(1), ddphi); dx; solve(eqns(2), ddx)];
 
 
 % 4.2.2 Beschränkungen
@@ -31,7 +31,18 @@ phi_max = pi/4;
 
 % 4.2.3 relative Leistung bestimmen
 
-u = 
+function u = calc_u(Mm, wm)
+
+if nargin == 1
+    P = (Mm * 9.434)^2;
+    u = 100*P/P_max;
+else
+    u = 0;
+end
+end
+
+
+
 
 
 
