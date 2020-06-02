@@ -52,7 +52,7 @@ phi_dotStart = 0; %Startgeschwindigkeit Pendel
 tic
 reglerInit 
 
-IC = [phiStart, phi_dotStart, xStart x_dotStart]; %Vektor mit Anfangsbedingungen 
+IC = [phiStart, phi_dotStart, xStart, x_dotStart]; %Vektor mit Anfangsbedingungen 
 %% Simulation
 tmax = 600; %Maximal erlaubte Zeit in s
 tSim = [0 tmax]; % Zeitintervall
