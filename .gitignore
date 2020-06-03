@@ -3,4 +3,4 @@
 *.slxc
 *.l
 *.xml
-*.mat
+/slprj/*
