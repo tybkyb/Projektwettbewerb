@@ -1,48 +1,20 @@
 %% Initialisierung des Reglers
-clc
 close
-clear
 
-% run lagrange.m
-lagrange
+ml = 1;
 
-% set Parameter
-ms = 0.8;
-ml = ml;
-l = 1;
-L = 5;
-r = 0.041;
-kr = 7.2e-3;
-g = 9.81;
-alpha_max = pi/6;
-M_max = 0.2;
-w_max = 17.8;
-P_max = 3.56;
-u_max = 100;
+s = tf('s');
 
+A = [0, 1, 0, 0;
+     -9.81*(1+ml/0.8), 0, 0, .009;
+     0, 0, 0, 1;
+     12.26*ml, 0, 0, -.009];
+B = [0, -30.49, 0, 30.49]';
 
-% 4.2.1 Zustandsraumdarstellung
-dz = [dphi; solve(eqns(1), ddphi); dx; solve(eqns(2), ddx)];
+Guy1 = -s/(.041*(0.8*s^3 + 0.0072*s^2 + 9.81*(0.8 + ml)*s + 0.071));
+Guy2 = (s^2 + 9.81)/(.041*s*(0.8*s^3 + 0.0072*s^2 + 9.81*(0.8 + ml)*s + 0.071));
 
-
-% 4.2.2 Beschränkungen
-x_max = L/2;
-phi_max = pi/4;
-
-% 4.2.3 relative Leistung bestimmen
-
-function u = calc_u(Mm, wm)
-
-if nargin == 1
-    P = (Mm * 9.434)^2;
-    u = 100*P/P_max;
-else
-    u = 0;
-end
-end
-
-
-
-
+bode(Guy2)
+nyquist(Guy2)
 
 

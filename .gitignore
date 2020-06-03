@@ -1,4 +1,6 @@
 
-*.mat
 *.m~
 *.slxc
+*.l
+*.xml
+*.mat
