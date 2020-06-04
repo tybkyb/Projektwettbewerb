@@ -54,7 +54,7 @@ reglerInit
 
 IC = [phiStart, phi_dotStart, xStart, x_dotStart]; %Vektor mit Anfangsbedingungen 
 %% Simulation
-tmax = 600; %Maximal erlaubte Zeit in s
+tmax = 100; %Maximal erlaubte Zeit in s
 tSim = [0 tmax]; % Zeitintervall
 
 sim('roboTemplate',tSim);
