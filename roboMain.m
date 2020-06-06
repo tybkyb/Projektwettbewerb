@@ -25,8 +25,6 @@ l = 1; %Länge des Pendels in m
 dp = 0; %Reibung des Pendels
 phi_max = pi/4; %maximale Auslenkung Pendel
 
-
-
 %Rad
 ds = 7.2e-3; %Rollwiderstandskoeffizient
 r = 0.041; %Radradius in m
