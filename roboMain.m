@@ -25,6 +25,8 @@ l = 1; %Länge des Pendels in m
 dp = 0; %Reibung des Pendels
 phi_max = pi/4; %maximale Auslenkung Pendel
 
+
+
 %Rad
 ds = 7.2e-3; %Rollwiderstandskoeffizient
 r = 0.041; %Radradius in m
@@ -50,9 +52,9 @@ phi_dotStart = 0; %Startgeschwindigkeit Pendel
 tic
 reglerInit 
 
-IC = [phiStart, phi_dotStart, xStart, x_dotStart]; %Vektor mit Anfangsbedingungen 
+IC = [phiStart, phi_dotStart, xStart x_dotStart]; %Vektor mit Anfangsbedingungen 
 %% Simulation
-tmax = 100; %Maximal erlaubte Zeit in s
+tmax = 600; %Maximal erlaubte Zeit in s
 tSim = [0 tmax]; % Zeitintervall
 
 sim('roboTemplate',tSim);
