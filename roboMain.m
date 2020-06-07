@@ -10,7 +10,7 @@ clear
 close all
 
 %% Parameter
-global g ms ml Mmax wMmax Pmax umax l dp phi_max ds r L
+
 g = 9.81; %Erdanziehung in m/s^2
 
 
@@ -52,7 +52,8 @@ phi_dotStart = 0; %Startgeschwindigkeit Pendel
 
 %% Initialisierung des Reglers
 tic
-reglerInit 
+reglerInit
+%regelbarkeit % Skript zur Überprüfung auf Steuer- und Beobachtbarkeit
 
 IC = [phiStart, phi_dotStart, xStart x_dotStart]; %Vektor mit Anfangsbedingungen 
 %% Simulation
