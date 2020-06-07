@@ -9,12 +9,14 @@
 clear 
 close all
 
-%% Parameter 
+%% Parameter
+global g ms ml Mmax wMmax Pmax umax l dp phi_max ds r L
 g = 9.81; %Erdanziehung in m/s^2
 
 
 %Schlitten
-ms = 0.8; % Masse Schlittenin kg
+ms = 0.8; % Masse Schlitten in kg
+ml = 1; % Masse Last in kg
 Mmax=0.2; % Maximales Motordrehmoment in Nm
 wMmax=17.8; % Maximale Motorumdrehungszahl in rad/s
 Pmax=wMmax*Mmax; % Maximale elektrische Motor-Leistung (Watt)
