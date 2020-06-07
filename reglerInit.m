@@ -27,11 +27,11 @@ D = [0,0,0,0]';
 Kp = zpk(-26, -3429, -26129);
 Ks = zpk(-0.4, -11459, 286474);
 
-pole_zustand = [-10, -3, -15, -5];
-pole_beob = 5*pole_zustand(3) * [4, 4.1, 4.3, 4.2];
+pole_zustand = [-3, -3, -120, -2.5];
+pole_beob = pole_zustand(3) * [6, 5, 4, 5];
 
 Kz = acker(A, B, pole_zustand);
-Kb = place(A', Cb', pole_beob);
+Kb = place(A', Cb', pole_beob)';
 
 V =  -1/(C(3,:)*inv(A-B*Kz)*B); 
 
