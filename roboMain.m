@@ -53,7 +53,10 @@ phi_dotStart = 0; %Startgeschwindigkeit Pendel
 %% Initialisierung des Reglers
 tic
 reglerInit
+auswahl_regler = 2; % (0: Kein Regler | 1: Frequenzbereichregler | 2: Zustandsraumregler)
 %regelbarkeit % Skript zur Überprüfung auf Steuer- und Beobachtbarkeit
+
+
 
 IC = [phiStart, phi_dotStart, xStart x_dotStart]; %Vektor mit Anfangsbedingungen 
 %% Simulation
