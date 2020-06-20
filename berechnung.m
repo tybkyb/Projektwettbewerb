@@ -6,7 +6,7 @@ clc
 lagrange
 syms M z1 z2 z3 z4
 
-dxdt = statespace_model(M,g, ms, l, r,ds,dp, ml,x,dx,phi,dphi, [phi dphi x dx])
+%dxdt = statespace_model(M,g, ms, l, r,ds,dp, ml,x,dx,phi,dphi, [phi dphi x dx])
 
 % set Parameter
 ms = 0.8;
