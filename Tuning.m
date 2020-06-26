@@ -1,14 +1,19 @@
-%% Initialisierung des Reglers
-close
+
+load simout
+
+u_optim = simout.data(:);
+y_optim = [zeros(size(u_optim,1),1),u_optim];
+parameter0 = [780 0 120 42]; % Startwert
 
 
-ml = 1;
-tmax = 100;
+optimization_options = optimset('algorithm','levenberg-marquardt',...
+    'display','iter','TolX',eps,'TolFun',eps); % options der Optimierung
 
-s = tf('s');
 
-Guy1 = -s/(.041*(0.8*s^3 + 0.0072*s^2 + 9.81*(0.8 + ml)*s + 0.071));
-Guy2 = (s^2 + 9.81)/(.041*s*(0.8*s^3 + 0.0072*s^2 + 9.81*(0.8 + ml)*s + 0.071));
+[parameter,RESNORM,RESIDUAL,EXITFLAG,OUTPUT,LAMBDA,JACOBIAN] = ...
+    lsqcurvefit(@sim_model,parameter0,u_optim, y_optim,[0 0 0 0],...
+    [10000 10000 10000 10000],optimization_options);
 
-mdl = 'roboTemplate';
-st0 = slTuner(mdl,'MIMO');
+disp(['Die neuen Parameter lauten: (1 entspricht dem Parameter des ' ...
+    'Herstellers)'])
+parameter
